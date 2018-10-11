@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--开始日期的背景-->
+    <corners android:radius="50dp"></corners>
+    <size android:height="50dp" android:width="50dp"/>
+    <solid android:color="#17A8B8"></solid>
+</shape>

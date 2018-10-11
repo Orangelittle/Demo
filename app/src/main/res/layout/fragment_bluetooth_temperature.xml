@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_gray"
+    android:padding="12dp">
+
+    <FrameLayout
+        android:id="@+id/view1"
+        android:layout_width="370dp"
+        android:layout_height="464dp"
+        android:background="#FFF">
+
+        <RadioGroup
+            android:id="@+id/title_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/button_bluetooth"
+                android:layout_width="138dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/temperature_title_checked"
+                android:button="@null"
+                android:gravity="center"
+                android:text="蓝牙耳温枪"
+                android:textColor="#FFF"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/button_body"
+                android:layout_width="138dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/temperature_title2_unchecked"
+                android:button="@null"
+                android:gravity="center"
+                android:text="体温贴片"
+                android:textColor="@color/color_gray"
+                android:textSize="20sp" />
+
+        </RadioGroup>
+
+        <com.peter.demo.PetalBackGroundView
+            android:id="@+id/view"
+            android:layout_width="220dp"
+            android:layout_height="225dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-20dp"
+            android:rotation="80" />
+
+        <LinearLayout
+            android:id="@+id/layout_tempeture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/bluetooth_tempeture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="36.5"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="°C"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/icon_bluetooth"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-15dp"
+            android:src="@mipmap/icon_green_bluetooth" />
+
+        <TextView
+            android:id="@+id/bluetooth_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="320dp"
+            android:text="上次测量温度"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/view" />
+
+    </FrameLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="370dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="5dp"
+        android:background="#FFF"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/view1">
+
+        <TextView
+            android:id="@+id/notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正常成人测量标准(°C)"
+            android:textColor="#4A4A4A"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/divider_line"
+            android:layout_width="345dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#F2F2F2"
+            app:layout_constraintTop_toBottomOf="@id/notification_title" />
+
+        <TableLayout
+            android:id="@+id/notification_tablelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:divider="@drawable/table_v_divider"
+            android:orientation="vertical"
+            android:showDividers="middle|beginning|end"
+            android:shrinkColumns="2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/table_h_divider"
+                android:orientation="horizontal"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:layout_width="83dp"
+                    android:text="人体状态" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:background="#5f33b7cc"
+                    android:text="0~2岁" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:background="#5f33b7cc"
+                    android:text="3~10岁" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:background="#5f33b7cc"
+                    android:text="11~65岁" />
+            </TableRow>
+
+            <TableRow
+                android:divider="@drawable/table_h_divider"
+                android:orientation="horizontal"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:layout_width="83dp"
+                    android:background="@color/background_gray"
+                    android:gravity="center"
+                    android:text="体温" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:text="36.4~38.0" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:text="36.1~37.8" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:text="35.9~37.7" />
+            </TableRow>
+
+        </TableLayout>
+
+        <View
+            android:layout_width="345dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#F2F2F2"
+            app:layout_constraintTop_toBottomOf="@id/notification_tablelayout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="（测量数据仅供参考）"
+            android:textColor="#9B9B9B"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="876dp"
+        android:layout_height="648dp"
+        android:layout_marginLeft="5dp"
+        android:background="#FFF"
+        android:padding="5dp"
+        app:layout_constraintLeft_toRightOf="@id/view1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:gravity="center"
+            android:text="体温数值"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/history_btn"
+            android:layout_width="116dp"
+            android:layout_height="36dp"
+            android:layout_gravity="right|end"
+            android:background="@drawable/temperature_button_checked"
+            android:gravity="center"
+            android:text="历史记录"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:id="@+id/divider_line1"
+            android:layout_width="859dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/background_gray"
+            app:layout_constraintTop_toBottomOf="@id/history_btn" />
+
+        <LinearLayout
+            android:id="@+id/tempeturelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line1">
+
+            <TextView
+                android:layout_width="155dp"
+                android:layout_height="27dp"
+                android:text="8月 26日  06:12pm"
+                android:textColor="#FF9B9B9B"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="135dp"
+                android:layout_height="30dp"
+                android:background="@drawable/temperature_note_bg"
+                android:gravity="center"
+                android:text="服药前" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="36.5"
+                android:textColor="#17A8B8"
+                android:textSize="50sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="摄氏温度（°C）" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bluetooth_connect_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line1">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/icon_green_bluetooth" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="已连接" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bodytemperature_chart_table"
+            android:layout_width="match_parent"
+            android:layout_height="308dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tempeturelayout" />
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/temperature_note_bg"
+            android:gravity="center"
+            android:text="备注：没睡好没睡好没睡好没睡"
+            android:textColor="#FF6C6E6E"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bodytemperature_chart_table" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="552dp"
+    android:layout_height="486dp"
+    android:background="@android:color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/dialog_title"
+        android:layout_width="139dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/temperature_note_bg"
+        android:gravity="center"
+        android:text="今日"
+        android:textColor="@color/table_text"
+        app:layout_constraintBottom_toTopOf="@id/divider_line"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider_line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="20dp"
+        android:background="#F1F1F1"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_title" />
+
+    <TextView
+        android:layout_width="59dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="20dp"
+        android:background="#F1F1F1"
+        android:gravity="center"
+        android:text="体温\n数值"
+        android:textColor="@color/table_text"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/dialog_temperature_value"
+        app:layout_constraintTop_toBottomOf="@+id/divider_line" />
+
+    <TextView
+        android:id="@+id/dialog_temperature_value"
+        android:layout_width="96dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="37.6"
+        android:textColor="#17A8B8"
+        android:textSize="30sp"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_line" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="(°C)"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/dialog_temperature_value"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintLeft_toLeftOf="@id/dialog_temperature_value"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_line"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <RadioGroup
+        android:id="@+id/status_layout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:divider="@drawable/temperature_dialogtext_divider"
+        android:orientation="horizontal"
+        android:showDividers="middle"
+        app:layout_constraintBottom_toTopOf="@id/note_edittext"
+        app:layout_constraintTop_toBottomOf="@id/dialog_temperature_value">
+
+        <RadioButton
+            android:id="@+id/state_getup_before"
+            android:layout_width="136dp"
+            android:layout_height="120dp"
+            android:background="@drawable/temperature_dialogtext_selector"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_b_alarm"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="早晨起床后"
+            android:textColor="@color/table_text" />
+
+        <RadioButton
+            android:id="@+id/state_takepills_before"
+            android:layout_width="136dp"
+            android:layout_height="120dp"
+            android:background="@drawable/temperature_dialogtext_selector"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_b_pills"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="服药前"
+            android:textColor="@color/table_text" />
+
+        <RadioButton
+            android:id="@+id/state_takepills_after"
+            android:layout_width="136dp"
+            android:layout_height="120dp"
+            android:background="@drawable/temperature_dialogtext_selector"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_b_took_pills"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="服药后"
+            android:textColor="@color/table_text" />
+
+        <RadioButton
+            android:id="@+id/state_others"
+            android:layout_width="136dp"
+            android:layout_height="120dp"
+            android:background="@drawable/temperature_dialogtext_selector"
+            android:button="@null"
+            android:drawableTop="@mipmap/icon_b_others"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="其他"
+            android:textColor="@color/table_text" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/note_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@null"
+        android:hint="备注（点击以编辑）"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/note_radiogroup"
+        app:layout_constraintTop_toBottomOf="@id/status_layout" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#F1F1F1"
+        app:layout_constraintTop_toBottomOf="@id/note_edittext" />
+
+    <RadioGroup
+        android:id="@+id/note_radiogroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/dialog_commit_result">
+
+        <RadioButton
+            android:id="@+id/default_radio1"
+            android:layout_width="132dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/temperature_note_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="看完惊悚电影"
+            android:textColor="@drawable/temperature_text_selector" />
+
+        <RadioButton
+            android:id="@+id/default_radio2"
+            android:layout_width="111dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/temperature_note_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:text="跟老婆吵架"
+            android:textColor="@drawable/temperature_text_selector" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/dialog_commit_result"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#4A4A4A"
+        android:gravity="center"
+        android:text="确认"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

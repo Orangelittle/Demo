@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="color_end">#3CC7D3</color>
+    <color name="color_start">#1C95A8</color>
+    <color name="color_low">#B5D6F9</color>
+    <color name="color_mid">#003CC7D3</color>
+    <color name="color_gray">#9B9B9B</color>
+    <color name="background_gray">#F8F8F8</color>
+    <color name="table_text">#4A4A4A</color>
+    <color name="white">#FFF</color>
+
+    <color name="calendarchoose_color">#8317a8b8</color>
+    <color name="txtColor">#333333</color>
+
+</resources>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_gray"
+    android:padding="12dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/view1"
+        android:layout_width="370dp"
+        android:layout_height="362dp"
+        android:background="#FFF"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测量历史日期"
+            android:textColor="#4A4A4A"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/clear_choose"
+            android:layout_width="108dp"
+            android:layout_height="32dp"
+            android:background="@drawable/temperature_button_unchecked"
+            android:gravity="center"
+            android:text="清除筛选"
+            android:textColor="@color/color_gray"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <View
+            android:id="@+id/divider_line1"
+            android:layout_width="345dp"
+            android:layout_height="0.5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#F1F1F1"
+            app:layout_constraintTop_toBottomOf="@id/clear_choose" />
+
+        <RadioGroup
+            android:id="@+id/date_radiogroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line1">
+
+            <RadioButton
+                android:id="@+id/singledate"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/temperature_date_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="单日"
+                android:textColor="@drawable/temperature_datetext_selector"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/multidate"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:background="@drawable/temperature_date_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="多日"
+                android:textColor="@drawable/temperature_datetext_selector"
+                android:textSize="20sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider_line1" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/divider_line2"
+            android:layout_width="345dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="15dp"
+            android:background="#F1F1F1"
+            app:layout_constraintTop_toBottomOf="@id/date_radiogroup" />
+
+        <TextView
+            android:id="@+id/startdatetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/icon_gray_calendar"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="开始日期"
+            android:textColor="@color/color_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line2" />
+
+        <TextView
+            android:id="@+id/enddatetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="35dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@mipmap/icon_gray_calendar"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="结束日期"
+            android:textColor="@color/color_gray"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line2" />
+
+        <TextView
+            android:id="@+id/start_date"
+            android:layout_width="120dp"
+            android:layout_height="67dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="选择日期"
+            android:textColor="#1C95A8"
+            android:textSize="28sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startdatetitle" />
+
+        <View
+            android:layout_width="26dp"
+            android:layout_height="1dp"
+            android:background="@color/color_gray"
+            app:layout_constraintBottom_toBottomOf="@id/start_date"
+            app:layout_constraintLeft_toLeftOf="@id/start_date"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startdatetitle"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="1dp"
+            android:background="@color/color_gray"
+            android:rotation="-45"
+            app:layout_constraintBottom_toBottomOf="@id/start_date"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintLeft_toLeftOf="@id/start_date"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startdatetitle"
+            app:layout_constraintVertical_bias="0.65" />
+
+        <View
+            android:layout_width="12dp"
+            android:layout_height="1dp"
+            android:background="@color/color_gray"
+            android:rotation="45"
+            app:layout_constraintBottom_toBottomOf="@id/start_date"
+            app:layout_constraintHorizontal_bias="0.53"
+            app:layout_constraintLeft_toLeftOf="@id/start_date"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/startdatetitle"
+            app:layout_constraintVertical_bias="0.54" />
+
+        <TextView
+            android:id="@+id/end_date"
+            android:layout_width="120dp"
+            android:layout_height="67dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="选择日期"
+            android:textColor="#FF1C95A8"
+            android:textSize="28sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/enddatetitle" />
+
+        <TextView
+            android:id="@+id/start_weekday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/color_gray"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintLeft_toLeftOf="@id/start_date"
+            app:layout_constraintRight_toRightOf="@id/start_date"
+            app:layout_constraintTop_toBottomOf="@id/start_date" />
+
+        <TextView
+            android:id="@+id/end_weekday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/color_gray"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintLeft_toLeftOf="@id/end_date"
+            app:layout_constraintRight_toRightOf="@id/end_date"
+            app:layout_constraintTop_toBottomOf="@id/end_date" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="370dp"
+        android:layout_height="283dp"
+        android:layout_marginTop="5dp"
+        android:background="#FFF"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@id/view1">
+
+        <TextView
+            android:id="@+id/notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正常成人测量标准(°C)"
+            android:textColor="#4A4A4A"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/divider_line3"
+            android:layout_width="345dp"
+            android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#F2F2F2"
+            app:layout_constraintTop_toBottomOf="@id/notification_title" />
+
+        <TableLayout
+            android:id="@+id/notification_tablelayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:divider="@drawable/table_v_divider"
+            android:orientation="vertical"
+            android:showDividers="middle|beginning|end"
+            android:shrinkColumns="2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line3"
+            app:layout_constraintVertical_bias="0.4">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/table_h_divider"
+                android:orientation="horizontal"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:layout_width="83dp"
+                    android:text="人体状态" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:background="#5f33b7cc"
+                    android:text="0~2岁" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:background="#5f33b7cc"
+                    android:text="3~10岁" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:background="#5f33b7cc"
+                    android:text="11~65岁" />
+            </TableRow>
+
+            <TableRow
+                android:divider="@drawable/table_h_divider"
+                android:orientation="horizontal"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:layout_width="83dp"
+                    android:background="@color/background_gray"
+                    android:gravity="center"
+                    android:text="体温" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:text="36.4~38.0" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:text="36.1~37.8" />
+
+                <TextView
+                    style="@style/temperatureTableText"
+                    android:text="35.9~37.7" />
+            </TableRow>
+
+        </TableLayout>
+
+        <View
+            android:id="@+id/divider_line4"
+            android:layout_width="345dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="55dp"
+            android:background="#F2F2F2"
+            app:layout_constraintBottom_toTopOf="@id/notification_text"
+            app:layout_constraintTop_toBottomOf="@id/notification_tablelayout" />
+
+        <TextView
+            android:id="@+id/notification_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="（测量数据仅供参考）"
+            android:textColor="#9B9B9B"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line4" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="876dp"
+        android:layout_height="648dp"
+        android:layout_marginLeft="5dp"
+        android:background="#FFF"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintLeft_toRightOf="@id/view1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_marginLeft="35dp"
+            android:gravity="center"
+            android:text="历史记录"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/history_temperature_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <RadioButton
+                android:id="@+id/bluetoothtemperature_btn"
+                android:layout_width="116dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/temperature_collecttime_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="蓝牙耳温枪"
+                android:textColor="@drawable/temperature_notetext_selector"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:id="@+id/bodytemperature_btn"
+                android:layout_width="116dp"
+                android:layout_height="36dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/temperature_collecttime_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="体温贴片"
+                android:textColor="@drawable/temperature_notetext_selector"
+                android:textSize="16sp" />
+
+        </RadioGroup>
+
+
+        <View
+            android:id="@+id/divider_line5"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/background_gray"
+            app:layout_constraintTop_toBottomOf="@id/history_temperature_group" />
+
+        <ImageView
+            android:id="@+id/history_back_btn"
+            android:layout_width="34dp"
+            android:layout_height="74dp"
+            android:rotation="180"
+            android:src="@mipmap/narrow_page"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line5" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_line5">
+
+            <TextView
+                android:layout_width="155dp"
+                android:layout_height="27dp"
+                android:text="8月 26日  06:12pm"
+                android:textColor="#FF9B9B9B"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="135dp"
+                android:layout_height="30dp"
+                android:background="@drawable/temperature_note_bg"
+                android:gravity="center"
+                android:text="服药前" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="36.5"
+                android:textColor="#17A8B8"
+                android:textSize="50sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="摄氏温度（°C）" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bluetooth_chart_table"
+            android:layout_width="match_parent"
+            android:layout_height="308dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/temperature_note_bg"
+            android:gravity="center"
+            android:text="备注：没睡好没睡好没睡好没睡"
+            android:textColor="#FF6C6E6E"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bluetooth_chart_table" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>
