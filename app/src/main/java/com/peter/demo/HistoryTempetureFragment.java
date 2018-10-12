@@ -19,7 +19,9 @@ import com.peter.demo.Calendar.CalendarChooseDialog;
 import com.peter.demo.Calendar.RxBus;
 import com.peter.demo.MainActivity;
 import com.peter.demo.R;
+import com.squareup.leakcanary.RefWatcher;
 
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
@@ -35,6 +37,7 @@ public class HistoryTempetureFragment extends Fragment implements View.OnClickLi
     private TextView end_week;
 
     private int CHOOSETYPE =2;//单日还是多日类型
+    private Disposable subscribe;
 
 
     public HistoryTempetureFragment() {
@@ -106,8 +109,8 @@ public class HistoryTempetureFragment extends Fragment implements View.OnClickLi
         });
 
 
-        TemperatureNoticeDialog.getInstance(getContext()).show();
-        RxBus.getInstance().register(String.class).subscribe(new Consumer<String>() {
+//        TemperatureNoticeDialog.getInstance(getContext()).show();
+        subscribe = RxBus.getInstance().register(String.class).subscribe(new Consumer<String>() {
             @Override
             public void accept(String s) throws Exception {
                 Log.d(TAG, "accept: " + s);
@@ -123,7 +126,9 @@ public class HistoryTempetureFragment extends Fragment implements View.OnClickLi
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        RxBus.getInstance().unregisterAll();
+        RxBus.getInstance().unregister(subscribe);
+        RefWatcher refWatcher = App.getRefWatcher(getActivity());
+        refWatcher.watch(this);
     }
 
     @Override

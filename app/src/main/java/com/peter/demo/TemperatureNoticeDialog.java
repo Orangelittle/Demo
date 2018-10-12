@@ -46,8 +46,15 @@ public class TemperatureNoticeDialog extends Dialog {
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-                  temperatureNoticeDialog.dismiss();
+                  dismiss();
         }
     };
 
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        if (temperatureNoticeDialog != null) {
+            temperatureNoticeDialog = null;
+        }
+    }
 }

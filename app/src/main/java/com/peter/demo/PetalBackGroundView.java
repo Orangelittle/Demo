@@ -43,11 +43,8 @@ public class PetalBackGroundView extends View {
 
         mWidth = widthSize - getPaddingRight() - getPaddingLeft();
         mHeight = heightSize - getPaddingTop() - getPaddingBottom();
-
-
         // 在wrap_content的情况下默认长度为200dp
         int minSize = 200;
-
         if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
             setMeasuredDimension(minSize, minSize);
             mHeight = minSize;
@@ -58,7 +55,6 @@ public class PetalBackGroundView extends View {
             setMeasuredDimension(widthSize, minSize);
         }
         radius = mWidth / 3;
-        Log.d(TAG, "onMeasure: width : " + mWidth + " height : " + mHeight);
     }
 
 

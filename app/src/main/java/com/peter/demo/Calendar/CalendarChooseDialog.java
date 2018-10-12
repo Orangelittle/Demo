@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.peter.demo.R;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -23,11 +25,7 @@ import io.reactivex.functions.Consumer;
  */
 public class CalendarChooseDialog extends Dialog implements View.OnClickListener{
     private static final String TAG = "CalendarChooseDialog";
-
-    public CalendarChooseDialog(@NonNull Context context, int themeResId) {
-        super(context, themeResId);
-    }
-
+    private Disposable subscribe;
     private TextView startTime;          //开始时间
     private TextView stopTime;           //结束时间
 
@@ -48,16 +46,19 @@ public class CalendarChooseDialog extends Dialog implements View.OnClickListener
     private static int choose_type;
 
 
-
+    public CalendarChooseDialog(@NonNull Context context, int themeResId) {
+        super(context, themeResId);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.calendar_choose_dialog);
-         RxBus.getInstance().register(Integer.class).subscribe(new Consumer<Integer>() {
+
+        subscribe = RxBus.getInstance().register(Integer.class).subscribe(new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) throws Exception {
                 Log.d(TAG, "RxBus accept: ------------------------" + integer);
-                if (integer == 1){
+                if (integer == 1) {
                     adapter.notifyDataSetChanged();
                     startTime.setText(startDay.getMonth() + "月" + startDay.getDay() + "日 " + startDay.getDayofweek());
                     if (stopDay.getDay() == -1) {
@@ -65,8 +66,7 @@ public class CalendarChooseDialog extends Dialog implements View.OnClickListener
                     } else {
                         stopTime.setText(stopDay.getMonth() + "月" + stopDay.getDay() + "日 " + stopDay.getDayofweek());
                     }
-                    //传值
-                    resultTime = startDay.getMonth() + "月" + startDay.getDay() + "日#" + startDay.getDayofweek()+"#" + stopDay.getMonth() + "月" + stopDay.getDay() + "日#" + stopDay.getDayofweek();
+                    resultTime = startDay.getMonth() + "月" + startDay.getDay() + "日#" + startDay.getDayofweek() + "#" + stopDay.getMonth() + "月" + stopDay.getDay() + "日#" + stopDay.getDayofweek();
                 }
             }
         });
@@ -116,6 +116,8 @@ public class CalendarChooseDialog extends Dialog implements View.OnClickListener
     @Override
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        RxBus.getInstance().unregister(subscribe);
+
     }
 
     @Override
@@ -125,10 +127,23 @@ public class CalendarChooseDialog extends Dialog implements View.OnClickListener
                     dismiss();
                 break;
             case  R.id.dialog_sure_btn:
-               if( stopDay.getDay()!=-1 && startDay.getDay()!=-1)
+               if( stopDay.getDay()!=-1 && startDay.getDay()!=-1){
                    RxBus.getInstance().post(resultTime);
-                    dismiss();
+                   dismiss();
+               }else if (stopDay.getDay()==-1 && startDay.getDay()!=-1){
+                   Toast.makeText(mContext, "请选择结束日期", Toast.LENGTH_SHORT).show();
+               }else {
+                   Toast.makeText(mContext, "请选择日期", Toast.LENGTH_SHORT).show();
+               }
                 break;
+        }
+    }
+
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        if (calendarChooseDialog != null) {
+            calendarChooseDialog = null;
         }
     }
 }

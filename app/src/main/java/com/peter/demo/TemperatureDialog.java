@@ -95,14 +95,16 @@ public class TemperatureDialog extends Dialog {
                 Log.d(TAG, "onClick: status: "+status +" note: "+note);
                 // TODO: 2018/10/8 传值出去 判断
 
-                temperatureDialog.dismiss();
+                dismiss();
             }
         });
     }
 
-
-
-
-
-
+    @Override
+    public void dismiss() {
+        super.dismiss();
+        if (temperatureDialog != null) {
+            temperatureDialog = null;
+        }
+    }
 }

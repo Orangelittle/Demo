@@ -15,7 +15,7 @@ public class BluetoothTempetureFragment extends Fragment {
 
 
     private RadioButton radiobodyButton;
-    private PetalBackGroundView bloodSugarBackGroundView;
+    private PetalBackGroundView petalBackGroundView;
 
     public BluetoothTempetureFragment() {
         // Required empty public constructor
@@ -36,8 +36,8 @@ public class BluetoothTempetureFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         radiobodyButton = ((RadioButton) view.findViewById(R.id.button_body));
 
-        bloodSugarBackGroundView = ((PetalBackGroundView) view.findViewById(R.id.view));
-//        bloodSugarBackGroundView.startAnim();
+        petalBackGroundView = ((PetalBackGroundView) view.findViewById(R.id.view));
+//        petalBackGroundView.startAnim();
 
         view.findViewById(R.id.history_btn).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +62,6 @@ public class BluetoothTempetureFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        bloodSugarBackGroundView.stopAnim();
+//        petalBackGroundView.stopAnim();
     }
 }

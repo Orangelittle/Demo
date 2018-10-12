@@ -263,16 +263,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayTimeViewHolde
                     CalendarChooseDialog.startDay.setMonthPosition(dayTimeEntity.getMonthPosition());
                     CalendarChooseDialog.startDay.setDayPosition(position);
                     CalendarChooseDialog.stopDay = CalendarChooseDialog.startDay;
-//                    CalendarChooseDialog.stopDay.setDay(dayTimeEntity.getDay());
-//                    CalendarChooseDialog.stopDay.setMonth(dayTimeEntity.getMonth());
-//                    CalendarChooseDialog.stopDay.setYear(dayTimeEntity.getYear());
-//                    CalendarChooseDialog.stopDay.setDayofweek(dayTimeEntity.getDayofweek());
-//                    CalendarChooseDialog.stopDay.setMonthPosition(dayTimeEntity.getMonthPosition());
-//                    CalendarChooseDialog.stopDay.setDayPosition(position);
-
-
-                // TODO: 2018/10/9 刷新ui 传值
-                RxBus.getInstance().post(1);// 发消息刷新适配器，目的为了显示日历上各个日期的背景颜色
+                    RxBus.getInstance().post(1);// 发消息刷新适配器，目的为了显示日历上各个日期的背景颜色
             }
         });
     }
